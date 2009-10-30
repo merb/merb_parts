@@ -30,7 +30,7 @@ module Merb
         k.respond_to?(:ancestors) && k.ancestors.include?(Merb::PartController)
       end       
 
-      opts = opts.empty? ? {} : Hash[*(opts.first)]
+      opts = opts.inject({}) {|h,v| h[v.first] = v.last; h}
       
       res = klasses.inject([]) do |memo,(klass,action)|
         memo << klass.new(self, opts)._dispatch(action)

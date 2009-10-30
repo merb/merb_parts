@@ -19,11 +19,11 @@ class Main < Merb::Controller
   end
   
   def part_with_params
-    part(TodoPart => :part_with_params, :my_param => "my_value")
+    part(TodoPart => :part_with_params, :my_param => "my_value", :my_second_param => "my_value")
   end
   
   def part_with_arrays_in_params
-    part(TodoPart => :part_with_params, :my_param => ['my_first_value', 'my_second_value'])
+    part(TodoPart => :part_with_params, :my_param => ['my_first_value', 'my_second_value'], :my_second_param => "my_value")
   end
 
   def part_within_view

@@ -3,8 +3,8 @@ require File.dirname(__FILE__) + '/spec_helper'
 describe "A Merb PartController" do
   
   before(:each) do
-    Merb::Router.prepare do |r|
-      r.default_routes
+    Merb::Router.prepare do
+      default_routes
     end
   end  
   
@@ -45,11 +45,13 @@ describe "A Merb PartController" do
   it "should provide params when calling a part" do
     controller = dispatch_to(Main, :part_with_params)
     controller.body.should match( /my_param = my_value/)
+    controller.body.should match( /my_second_param = my_value/)
   end
 
   it "should provide arrays from params when calling a part" do
     controller = dispatch_to(Main, :part_with_arrays_in_params)
     controller.body.should match(/my_param = my_first_value, my_second_value/)
+    controller.body.should match( /my_second_param = my_value/)
   end
   
   it "should render from inside a view" do
