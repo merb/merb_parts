@@ -1,0 +1,4 @@
+== 0.9.14
+* Fix multiple parameter bug for part() method [#192 status:resolved]
+* Added /lib/merb_parts/version.rb
+* Added CHANGELOG
